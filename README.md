@@ -29,11 +29,12 @@ Retro Store es una tienda en línea que ofrece una variedad de productos retro y
 1. Clona este repositorio en tu computadora.
 2. Navega hasta el directorio del proyecto en tu terminal.
 3. Ejecuta el comando `npm install` para instalar las dependencias.
-4. Ejecuta el comando `npm start` para iniciar la aplicación en modo de desarrollo.
+4. Ejecuta el comando `npm run dev` para iniciar la aplicación en modo de desarrollo.
 
 ## Tecnologías Utilizadas
 
 - React
+- Vite
 - Bootstrap
 - Font Awesome
 - React Router Dom
