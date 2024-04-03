@@ -9,9 +9,7 @@ const MainContent = ({ selectedItem }) => {
       content = (
         <>
           <div>
-            <a href="#">
-              <img src={brandLogo} className="logo" alt="Retro Store Logo" />
-            </a>
+            <img src={brandLogo} className="logo" alt="Retro Store Logo" />
           </div>
           <h1>Bienvenidos!!</h1>
         </>
