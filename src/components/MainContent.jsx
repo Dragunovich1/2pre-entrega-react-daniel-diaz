@@ -2,7 +2,7 @@ import React from 'react';
 import brandLogo from '../assets/logo_claro.png';
 
 const MainContent = ({ selectedItem }) => {
-  // Contenido dinámico según la opción seleccionada en el NavBar
+  // Contenido dinámico según la opción seleccionada en el NavBar (esto es viejo)
   let content;
   switch (selectedItem) {
     default:

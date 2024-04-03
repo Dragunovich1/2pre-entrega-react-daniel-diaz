@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-import { Navbar, Nav, Container } from 'react-bootstrap'; // Importamos los componentes de Navbar de Bootstrap
+import { Navbar, Nav, Container } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 
 export const CustomNavbar = () => {

@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import { useParams } from "react-router-dom";
 import data from "../data/products.json";
-import '../styles/ItemDetail.css'; // Importa el archivo de estilos CSS personalizados
+import '../styles/ItemDetail.css';
 
 export const ItemDetailContainer = () => {
   const [product, setProduct] = useState(null);
@@ -21,7 +21,7 @@ export const ItemDetailContainer = () => {
   }, [id]);
 
   const addToCart = () => {
-    // Aquí puedes implementar la lógica para agregar el ítem al carrito
+    // Proximamente implementare el codigo para agregar items al carrito
     console.log(`El ítem "${product.title}" ha sido agregado al carrito.`);
   };
 

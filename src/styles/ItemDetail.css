@@ -1,8 +1,8 @@
 .item-detail-container {
   text-align: center;
   padding: 20px;
-  border-radius: 10px; /* Redondea el borde del contenedor */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Agrega un box shadow */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .item-detail-title {
   font-size: 2rem;

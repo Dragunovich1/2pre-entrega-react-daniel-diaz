@@ -1,7 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
-import '../styles/Item.css'; // Importa el archivo de estilos CSS personalizados
+import '../styles/Item.css';
 
 export const Item = ({ product }) => (
   <div className="custom-card-container">
