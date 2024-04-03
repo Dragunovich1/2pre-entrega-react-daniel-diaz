@@ -1,0 +1,28 @@
+.item-detail-container {
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px; /* Redondea el borde del contenedor */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Agrega un box shadow */
+}
+.item-detail-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.item-detail-image {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.item-detail-description {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.item-detail-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
