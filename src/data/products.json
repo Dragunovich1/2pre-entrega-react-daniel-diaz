@@ -1,0 +1,74 @@
+[
+{
+    "id": 1,
+    "title": "PowKiddy RGB20s",
+    "description": "Consola retro portatil",
+    "category": "Consolas",
+    "price": "150000",
+    "pictureUrl": "https://th.bing.com/th/id/OIP.YKcHbLsW4Fc2az7U7rzRtAAAAA?rs=1&pid=ImgDetMain"
+},
+{
+    "id": 2,
+    "title": "Anbernic RG353V",
+    "description": "Consola retro portatil Android",
+    "category": "Consolas",
+    "price": "200000",
+    "pictureUrl": "https://imgaz1.staticbg.com/thumb/view/oaupload/banggood/images/98/6A/2192e062-ef82-458f-aebc-c3e1ce18f5af.jpg"
+},
+{
+    "id": 3,
+    "title": "Family AV TV",
+    "description": "Consola Family para jugar en la TV, requiere cartuchos",
+    "category": "Consolas",
+    "price": "40000",
+    "pictureUrl": "https://th.bing.com/th/id/OIP.i-Q6uVoo6FPJxV_u1fbNYwAAAA?rs=1&pid=ImgDetMain"
+},
+{
+    "id": 4,
+    "title": "RetroCade",
+    "description": "Consola arcade HDMI",
+    "category": "Consolas",
+    "price": "100000",
+    "pictureUrl": "https://rlx.sk/14177-medium_default/arcade-d-1p-usb-arcade-control-box-ws-16312.jpg"
+},
+{
+    "id": 5,
+    "title": "Memory stick 128GB",
+    "description": "Memoria para tus consolas portatiles 128GB",
+    "category": "Accesorios",
+    "price": "60000",
+    "pictureUrl": "https://th.bing.com/th/id/OIP.ldM_hukDKFrA1_p2VkkRLgAAAA?rs=1&pid=ImgDetMain"
+},
+{
+    "id": 6,
+    "title": "JoysTick Retro",
+    "description": "Joystick retro estilo SNES Bluetooth con analogicos",
+    "price": "80000",
+    "category": "Accesorios",
+    "pictureUrl": "https://www.cdiscount.com/pdt2/8/0/2/1/700x700/auc0792855297802/rw/8bitdo-sn30-pro-manettes-de-jeu-controleur-de-jeu.jpg"
+},
+{
+    "id": 7,
+    "title": "Cable HDMI",
+    "description": "Cable HDMI 3MTS",
+    "price": "7000",
+    "category": "Accesorios",
+    "pictureUrl": "https://th.bing.com/th/id/OIP.uMQ-22Tf9EtZ4CjktzIFKgAAAA?rs=1&pid=ImgDetMain"
+},
+{
+    "id": 8,
+    "title": "Remera Mario Bros",
+    "description": "Remera Mario Bros",
+    "price": "10000",
+    "category": "Merchandising",
+    "pictureUrl": "https://th.bing.com/th/id/OIP.ZJIZOHpc5qFGTLmzbhEXLQHaFj?rs=1&pid=ImgDetMain"
+},
+{
+    "id": 9,
+    "title": "LLavero Executor",
+    "description": "Llavero retro con sonidos varios",
+    "category": "Merchandising",
+    "price": "7000",
+    "pictureUrl": "https://www.voceselembra.com/wp-content/uploads/2020/04/Chaveiro2BMusical.jpg"
+}
+]

@@ -1,23 +1,27 @@
 import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NavBar from './components/Navbar';
 import MainContent from './components/MainContent';
+import { ItemListContainer } from './components/ItemListContainer';
+import { ItemDetailContainer } from './components/ItemDetailContainer';
 import Footer from './components/Footer';
 import './styles/App.css'
 
 function App() {
-  const [selectedItem, setSelectedItem] = useState('Inicio');
-
-  const handleItemClick = (item) => {
-    setSelectedItem(item);
-  };
-
-  return (
-    <div className="App">
-      <NavBar onItemClick={handleItemClick} />
-      <MainContent selectedItem={selectedItem} />
-      <Footer />
-    </div>
+  return(  
+  <>
+  <BrowserRouter>
+  <NavBar />
+  <Routes>
+    <Route path="/" element={<MainContent/>}/>
+    <Route path="/products" element={<ItemListContainer/>}/>
+    <Route path="/category/:id" element={<ItemListContainer/>}/>
+    <Route path="/item/:id" element={<ItemDetailContainer/>}/>
+  </Routes>
+  </BrowserRouter>
+  <Footer />
+  </>
   );
 }
 
-export default App;
+export default App

@@ -22,6 +22,7 @@ Retro Store es una tienda en línea que ofrece una variedad de productos retro y
 - **CartWidget**: Un icono de carrito que muestra la cantidad de elementos en el carrito (por ahora con numero hardcodeado).
 - **ItemListContainer**: Contenedor principal que muestra un mensaje de bienvenida "¡Bienvenido a Retro Store!".
 - **Footer**: Pie de página que muestra el texto "Primera pre-entrega - CoderHouse - React - Daniel Diaz".
+- **ItemListContainer, ItemList, ItemDetailContainer,Item**: Se incluyen cards con algunos productos
 
 ## Instalación
 
@@ -35,3 +36,4 @@ Retro Store es una tienda en línea que ofrece una variedad de productos retro y
 - React
 - Bootstrap
 - Font Awesome
+- React Router Dom

@@ -8,7 +8,7 @@ pnpm-debug.log*
 lerna-debug.log*
 
 00.Rollback
-01. Rotos
+
 node_modules
 dist
 dist-ssr
