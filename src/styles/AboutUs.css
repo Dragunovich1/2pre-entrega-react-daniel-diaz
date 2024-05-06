@@ -1,0 +1,31 @@
+.about-us-container {
+  max-width: 600px;
+  margin: 0 auto; /* Para centrar el contenedor horizontalmente */
+  padding: 20px; /* Agregamos un poco de espacio alrededor del contenido */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Agregamos una ligera sombra */
+  border-radius: 8px; /* Añadimos esquinas redondeadas */
+}
+
+
+.about-us-container h2 {
+  margin-bottom: 10px;
+}
+
+.about-us-container p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.about-us-image img {
+  max-width: 80%;
+  height: auto;
+}
+
+.about-us-title h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.about-us-content p {
+  text-align: justify;
+}

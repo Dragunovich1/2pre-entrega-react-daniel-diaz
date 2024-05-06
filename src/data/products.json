@@ -5,7 +5,7 @@
     "description": "Consola retro portatil",
     "category": "Consolas",
     "price": "150000",
-    "pictureUrl": "https://th.bing.com/th/id/OIP.YKcHbLsW4Fc2az7U7rzRtAAAAA?rs=1&pid=ImgDetMain"
+    "pictureUrl": "https://m.media-amazon.com/images/I/41b09O35zUL.jpg"
 },
 {
     "id": 2,
@@ -18,7 +18,7 @@
 {
     "id": 3,
     "title": "Family AV TV",
-    "description": "Consola Family para jugar en la TV, requiere cartuchos",
+    "description": "Consola Family clásica",
     "category": "Consolas",
     "price": "40000",
     "pictureUrl": "https://th.bing.com/th/id/OIP.i-Q6uVoo6FPJxV_u1fbNYwAAAA?rs=1&pid=ImgDetMain"
@@ -50,7 +50,7 @@
 {
     "id": 7,
     "title": "Cable HDMI",
-    "description": "Cable HDMI 3MTS",
+    "description": "Cable HDMI de 3 metros, marca holigans",
     "price": "7000",
     "category": "Accesorios",
     "pictureUrl": "https://th.bing.com/th/id/OIP.uMQ-22Tf9EtZ4CjktzIFKgAAAA?rs=1&pid=ImgDetMain"
@@ -70,5 +70,29 @@
     "category": "Merchandising",
     "price": "7000",
     "pictureUrl": "https://www.voceselembra.com/wp-content/uploads/2020/04/Chaveiro2BMusical.jpg"
+},
+{
+    "id": 10,
+    "title": "Taza Pacman",
+    "description": "Taza con diseño de Pacman",
+    "category": "Merchandising",
+    "price": "2500",
+    "pictureUrl": "https://m.media-amazon.com/images/I/81d3sTH5voL._AC_UF894,1000_QL80_.jpg"
+},
+{
+    "id": 11,
+    "title": "Game Stick",
+    "description": "Consola retro HDMI Stick",
+    "category": "Consolas",
+    "price": "100000",
+    "pictureUrl": "https://http2.mlstatic.com/D_NQ_NP_2X_645685-MLU73089405076_112023-F.webp"
+},
+{
+    "id": 12,
+    "title": "Retro Pi",
+    "description": "Consola retro Raspberry PI starter kit",
+    "category": "Consolas",
+    "price": "180000",
+    "pictureUrl": "https://cdn1.botland.store/120227-pdt_540/retropie-gaming-kit-with-raspberry-pi-4b-4gb.jpg"
 }
 ]

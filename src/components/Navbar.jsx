@@ -15,6 +15,7 @@ export const CustomNavbar = () => {
               <Nav.Link to="/category/Consolas" as={NavLink}>Consolas</Nav.Link>
               <Nav.Link to="/category/Accesorios" as={NavLink}>Accesorios</Nav.Link>
               <Nav.Link to="/category/Merchandising" as={NavLink}>Merchandising</Nav.Link>
+              <Nav.Link to="/about" as={NavLink}>Acerca de nosotros</Nav.Link>
           </Nav>
           <Nav>
             <Nav.Link href="#cart">
