@@ -1,0 +1,682 @@
+Estructura del proyecto:
+
+	Retro Store:
+				
+				index.html:
+
+				<!doctype html>
+				<html lang="en">
+				  <head>
+				    <meta charset="UTF-8" />
+				    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+				    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+				    <title>Retro Store</title>
+				  </head>
+				  <body>
+				    <div id="root"></div>
+				    <script type="module" src="/src/main.jsx"></script>
+				  </body>
+				</html>
+
+				package.json:
+
+				{
+				  "name": "retro-store",
+				  "private": true,
+				  "version": "0.0.0",
+				  "type": "module",
+				  "scripts": {
+				    "dev": "vite",
+				    "build": "vite build",
+				    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+				    "preview": "vite preview"
+				  },
+				  "dependencies": {
+				    "@fortawesome/fontawesome-svg-core": "^6.5.2",
+				    "@fortawesome/free-solid-svg-icons": "^6.5.2",
+				    "@fortawesome/react-fontawesome": "^0.2.0",
+				    "bootstrap": "^5.3.3",
+				    "react": "^18.2.0",
+				    "react-bootstrap": "^2.10.2",
+				    "react-dom": "^18.2.0",
+				    "react-icons": "^5.0.1",
+				    "react-router-dom": "^6.22.3"
+				  },
+				  "devDependencies": {
+				    "@types/react": "^18.2.66",
+				    "@types/react-dom": "^18.2.22",
+				    "@vitejs/plugin-react": "^4.2.1",
+				    "eslint": "^8.57.0",
+				    "eslint-plugin-react": "^7.34.1",
+				    "eslint-plugin-react-hooks": "^4.6.0",
+				    "eslint-plugin-react-refresh": "^0.4.6",
+				    "vite": "^5.2.0"
+				  }
+				}
+
+				vite.config.js:
+
+				import { defineConfig } from 'vite'
+				import react from '@vitejs/plugin-react'
+
+				// https://vitejs.dev/config/
+				export default defineConfig({
+				  base: "./",
+				  plugins: [react()]
+				})
+
+				public:
+
+				favicon.ico
+				logo.jpg
+				logo_claro
+
+				src:
+
+					App.jsx:
+
+						import React, { useState } from 'react';
+						import { BrowserRouter, Routes, Route } from 'react-router-dom';
+						import NavBar from './components/Navbar';
+						import MainContent from './components/MainContent';
+						import { ItemListContainer } from './components/ItemListContainer';
+						import { ItemDetailContainer } from './components/ItemDetailContainer';
+						import AboutUs from './components/AboutUs';
+						import Footer from './components/Footer';
+						import './styles/App.css'
+
+						function App() {
+						  return(  
+						  <>
+						  <BrowserRouter>
+						  <NavBar />
+						  <Routes>
+						    <Route path="/" element={<MainContent/>}/>
+						    <Route path="/products" element={<ItemListContainer/>}/>
+						    <Route path="/category/:id" element={<ItemListContainer/>}/>
+						    <Route path="/item/:id" element={<ItemDetailContainer/>}/>
+						    <Route path="/about" element={<AboutUs />} />
+						  </Routes>
+						  </BrowserRouter>
+						  <Footer />
+						  </>
+						  );
+						}
+
+						export default App
+
+					main.jsx:
+
+						import React from 'react';
+						import ReactDOM from 'react-dom';
+						import App from './App.jsx';
+						import './styles/index.css';
+						import 'bootstrap/dist/css/bootstrap.min.css';
+
+						ReactDOM.render(
+						  <React.StrictMode>
+						    <App />
+						  </React.StrictMode>,
+						  document.getElementById('root')
+						);
+
+
+					assets:
+
+						about-us.png
+						logo.jpg
+						logo_claro.png
+
+				components:
+
+					AboutUs.jsx:
+
+						import React from 'react';
+						import '../styles/AboutUs.css';
+						import RetroStoreAbout from '../assets/about-us.png';
+
+						const AboutUs = () => {
+						  return (
+						    <div className="about-us-container">
+						      <div className="about-us-title">
+						        <h2>Acerca de Nosotros</h2>
+						      </div>
+						      <div className="about-us-image">
+						        <img src={RetroStoreAbout} alt="Retro Store Logo" />
+						      </div>
+						      <div className="about-us-content">
+						        <p>
+						          Somos una tienda dedicada a productos para jugar juegos retro y merchandising retro.
+						          Nos apasiona ofrecer una amplia selección de productos de calidad que permitan a nuestros clientes revivir la nostalgia de los juegos retro y expresar su amor por esta época dorada de los videojuegos.
+						        </p>
+						      </div>
+						    </div>
+						  );
+						};
+
+						export default AboutUs;
+
+					CartWidget.jsx:
+
+						import React from 'react';
+						import { FaShoppingCart } from 'react-icons/fa';
+
+						const CartWidget = () => {
+						  return (
+						    <div className="cart-widget">
+						      <FaShoppingCart />
+						      <span className="badge bg-primary">3</span>
+						    </div>
+						  );
+						};
+
+						export default CartWidget;
+
+					Footer.jsx:
+
+						import React from 'react';
+
+						const Footer = () => {
+						  return (
+						    <footer className="bg-dark text-white text-center p-3 fixed-bottom">
+						      Proyecto Final - CoderHouse - React - Daniel Diaz
+						    </footer>
+						  );
+						};
+
+						export default Footer;
+
+					item.jsx:
+
+						import Button from 'react-bootstrap/Button';
+						import Card from 'react-bootstrap/Card';
+						import { Link } from 'react-router-dom';
+						import '../styles/Item.css';
+
+						export const Item = ({ product }) => (
+						  <div className="custom-card-container">
+						    <div className="custom-card">
+						      <img src={product.pictureUrl} alt={product.title} className="custom-card-img" />
+						      <div className="custom-card-body">
+						        <h5 className="custom-card-title">{product.title}</h5>
+						        <p className="custom-card-text">{product.description}</p>
+						        <p className="custom-card-price">${product.price}</p>
+						        <div className="custom-card-buttons">
+						          <Link to={`/item/${product.id}`} className="btn btn-primary">Detalles</Link>
+						        </div>
+						      </div>
+						    </div>
+						  </div>
+						);
+
+					ItemDetailContainer.jsx:
+
+						import { useEffect, useState } from "react";
+						import Container from 'react-bootstrap/Container';
+						import Button from 'react-bootstrap/Button';
+						import { useParams } from "react-router-dom";
+						import data from "../data/products.json";
+						import '../styles/ItemDetail.css';
+
+						export const ItemDetailContainer = () => {
+						  const [product, setProduct] = useState(null);
+						  const { id } = useParams();
+
+						  useEffect(() => {
+						    const get = new Promise((resolve, reject) => {
+						      resolve(data);
+						    });
+
+						    get.then((data) => {
+						      const filter = data.find((p) => p.id === Number(id));
+						      setProduct(filter);
+						    });
+						  }, [id]);
+
+						  const addToCart = () => {
+						    // Proximamente implementare el codigo para agregar items al carrito
+						    console.log(`El ítem "${product.title}" ha sido agregado al carrito.`);
+						  };
+
+						  if (!product) return <div>Loading...</div>;
+
+						  return (
+						    <Container className='item-detail-container mt-4'>
+						      <h1 className='item-detail-title'>{product.title}</h1>
+						      <img src={product.pictureUrl} alt="Product" className='item-detail-image' />
+						      <p className='item-detail-description'>{product.description}</p>
+						      <p className='item-detail-price'>${product.price}</p>
+						      <Button variant="primary" onClick={addToCart}>Agregar al carrito</Button>
+						    </Container>
+						  );
+						};
+
+					ItemList.jsx:
+
+						import { Item } from "./Item";
+						import '../styles/Item.css';
+
+						export const ItemList = ({ products }) => {
+						  return (
+						    <div className="item-list-row">
+						      {products.map((product) => (
+						        <div key={product.id} className="custom-card-container">
+						          <Item product={product} />
+						        </div>
+						      ))}
+						    </div>
+						  );
+						};
+
+					ItemListContainer:
+
+						import { useEffect, useState } from "react";
+						import Container from 'react-bootstrap/Container';
+						import { ItemList } from "./ItemList";
+						import { useParams } from "react-router-dom";
+						import data from "../data/products.json";
+
+						export const ItemListContainer = () => {
+						  const [products, setProducts] = useState([]);
+						  const { id } = useParams();
+
+						  useEffect(() => {
+						    const get = new Promise((resolve, reject) => {
+						      resolve(data);
+						    });
+
+						    get.then((data) => {
+						      if (!id) {
+						        setProducts(data);
+						      } else {
+						        const filtered = data.filter((p) => p.category === id);
+						        setProducts(filtered);
+						      }
+						    });
+						  }, [id]);
+
+						  return (
+						    <Container className='mt-4'>
+						      <ItemList products={products} />
+						    </Container>
+						  );
+						};
+
+					MainContent.jsx:
+
+						import React from 'react';
+						import brandLogo from '../assets/logo_claro.png';
+
+						const MainContent = ({ selectedItem }) => {
+						  // Contenido dinámico según la opción seleccionada en el NavBar (esto es viejo)
+						  let content;
+						  switch (selectedItem) {
+						    default:
+						      content = (
+						        <>
+						          <div>
+						            <img src={brandLogo} className="logo" alt="Retro Store Logo" />
+						          </div>
+						          <h1>Bienvenidos!!</h1>
+						        </>
+						      );
+						  }
+
+						  return (
+						    <div className="main-content">
+						      {content}
+						    </div>
+						  );
+						};
+
+						export default MainContent;
+
+					NavBar.jsx:
+
+						import React from 'react';
+						import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+						import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+						import { Navbar, Nav, Container } from 'react-bootstrap';
+						import { NavLink } from 'react-router-dom';
+
+						export const CustomNavbar = () => {
+						  return (
+						    <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
+						      <Container>
+						      <Navbar.Brand to="" as={NavLink}>Retro Store</Navbar.Brand>
+						        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+						        <Navbar.Collapse id="basic-navbar-nav">
+						          <Nav className="me-auto">
+						              <Nav.Link to="/category/Consolas" as={NavLink}>Consolas</Nav.Link>
+						              <Nav.Link to="/category/Accesorios" as={NavLink}>Accesorios</Nav.Link>
+						              <Nav.Link to="/category/Merchandising" as={NavLink}>Merchandising</Nav.Link>
+						              <Nav.Link to="/about" as={NavLink}>Acerca de nosotros</Nav.Link>
+						          </Nav>
+						          <Nav>
+						            <Nav.Link href="#cart">
+						              <FontAwesomeIcon icon={faShoppingCart} />
+						              <span className="badge bg-primary">3</span>
+						            </Nav.Link>
+						          </Nav>
+						        </Navbar.Collapse>
+						      </Container>
+						    </Navbar>
+						  );
+						};
+
+						export default CustomNavbar;
+
+				data:
+
+					products.json:
+
+										[
+						{
+						    "id": 1,
+						    "title": "PowKiddy RGB20s",
+						    "description": "Consola retro portatil",
+						    "category": "Consolas",
+						    "price": "150000",
+						    "pictureUrl": "https://m.media-amazon.com/images/I/41b09O35zUL.jpg"
+						},
+						{
+						    "id": 2,
+						    "title": "Anbernic RG353V",
+						    "description": "Consola retro portatil Android",
+						    "category": "Consolas",
+						    "price": "200000",
+						    "pictureUrl": "https://imgaz1.staticbg.com/thumb/view/oaupload/banggood/images/98/6A/2192e062-ef82-458f-aebc-c3e1ce18f5af.jpg"
+						},
+						{
+						    "id": 3,
+						    "title": "Family AV TV",
+						    "description": "Consola Family clásica",
+						    "category": "Consolas",
+						    "price": "40000",
+						    "pictureUrl": "https://th.bing.com/th/id/OIP.i-Q6uVoo6FPJxV_u1fbNYwAAAA?rs=1&pid=ImgDetMain"
+						},
+						{
+						    "id": 4,
+						    "title": "RetroCade",
+						    "description": "Consola arcade HDMI",
+						    "category": "Consolas",
+						    "price": "100000",
+						    "pictureUrl": "https://rlx.sk/14177-medium_default/arcade-d-1p-usb-arcade-control-box-ws-16312.jpg"
+						},
+						{
+						    "id": 5,
+						    "title": "Memory stick 128GB",
+						    "description": "Memoria para tus consolas portatiles 128GB",
+						    "category": "Accesorios",
+						    "price": "60000",
+						    "pictureUrl": "https://th.bing.com/th/id/OIP.ldM_hukDKFrA1_p2VkkRLgAAAA?rs=1&pid=ImgDetMain"
+						},
+						{
+						    "id": 6,
+						    "title": "JoysTick Retro",
+						    "description": "Joystick retro estilo SNES Bluetooth con analogicos",
+						    "price": "80000",
+						    "category": "Accesorios",
+						    "pictureUrl": "https://www.cdiscount.com/pdt2/8/0/2/1/700x700/auc0792855297802/rw/8bitdo-sn30-pro-manettes-de-jeu-controleur-de-jeu.jpg"
+						},
+						{
+						    "id": 7,
+						    "title": "Cable HDMI",
+						    "description": "Cable HDMI de 3 metros, marca holigans",
+						    "price": "7000",
+						    "category": "Accesorios",
+						    "pictureUrl": "https://th.bing.com/th/id/OIP.uMQ-22Tf9EtZ4CjktzIFKgAAAA?rs=1&pid=ImgDetMain"
+						},
+						{
+						    "id": 8,
+						    "title": "Remera Mario Bros",
+						    "description": "Remera Mario Bros",
+						    "price": "10000",
+						    "category": "Merchandising",
+						    "pictureUrl": "https://th.bing.com/th/id/OIP.ZJIZOHpc5qFGTLmzbhEXLQHaFj?rs=1&pid=ImgDetMain"
+						},
+						{
+						    "id": 9,
+						    "title": "LLavero Executor",
+						    "description": "Llavero retro con sonidos varios",
+						    "category": "Merchandising",
+						    "price": "7000",
+						    "pictureUrl": "https://i.imgur.com/yIPHhIb.jpeg"
+						},
+						{
+						    "id": 10,
+						    "title": "Taza Pacman",
+						    "description": "Taza con diseño de Pacman",
+						    "category": "Merchandising",
+						    "price": "2500",
+						    "pictureUrl": "https://m.media-amazon.com/images/I/81d3sTH5voL._AC_UF894,1000_QL80_.jpg"
+						},
+						{
+						    "id": 11,
+						    "title": "Game Stick",
+						    "description": "Consola retro HDMI Stick",
+						    "category": "Consolas",
+						    "price": "100000",
+						    "pictureUrl": "https://http2.mlstatic.com/D_NQ_NP_2X_645685-MLU73089405076_112023-F.webp"
+						},
+						{
+						    "id": 12,
+						    "title": "Retro Pi",
+						    "description": "Consola retro Raspberry PI starter kit",
+						    "category": "Consolas",
+						    "price": "180000",
+						    "pictureUrl": "https://cdn1.botland.store/120227-pdt_540/retropie-gaming-kit-with-raspberry-pi-4b-4gb.jpg"
+						}
+						]
+
+				Styles:
+
+					AboutUs.css:
+
+						.about-us-container {
+						  max-width: 400px;
+						  margin-top: 20px;
+						  margin-bottom: 20px;
+						  padding: 10px;
+						  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Agregamos una ligera sombra */
+						  border-radius: 8px; /* Añadimos esquinas redondeadas */
+						}
+
+
+						.about-us-container h2 {
+						  margin-bottom: 10px;
+						}
+
+						.about-us-container p {
+						  font-size: 16px;
+						  line-height: 1.6;
+						}
+
+						.about-us-image img {
+						  max-width: 80%;
+						  height: auto;
+						}
+
+						.about-us-title h2 {
+						  margin-bottom: 20px;
+						  text-align: center;
+						}
+
+						.about-us-content p {
+						  text-align: justify;
+						}
+
+					App.css:
+
+						#root {
+						  max-width: 1280px;
+						  margin: 0 auto;
+						  padding: 2rem;
+						  text-align: center;
+						}
+
+						.logo {
+						  padding: 10px;
+						  will-change: filter;
+						  transition: filter 300ms;
+						  position: relative;
+						}
+
+					index.css:
+
+						:root {
+						  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+						  line-height: 1.5;
+						  font-weight: 400;
+
+						  color-scheme: light dark;
+						  color: rgba(255, 255, 255, 0.87);
+						  background-color: #242424;
+
+						  font-synthesis: none;
+						  text-rendering: optimizeLegibility;
+						  -webkit-font-smoothing: antialiased;
+						  -moz-osx-font-smoothing: grayscale;
+						}
+
+						a {
+						  font-weight: 500;
+						  color: #646cff;
+						  text-decoration: inherit;
+						}
+						a:hover {
+						  color: #535bf2;
+						}
+
+						body {
+						  margin: 0;
+						  display: flex;
+						  place-items: center;
+						  min-width: 320px;
+						  min-height: 100vh;
+						}
+
+						h1 {
+						  font-size: 3.2em;
+						  line-height: 1.1;
+						  margin-left: 10px;
+						}
+
+					Item.css:
+
+						.item-list-row {
+						  display: flex;
+						  flex-wrap: wrap;
+						  justify-content: center;
+						  margin: 0 -10px;
+						}
+
+						.custom-card-container {
+						  flex: 1 0 calc(33.33% - 20px);
+						  margin: 10px;
+						  margin-bottom: 20px;
+						}
+
+						.custom-card {
+						  width: 100%;
+						  height: 100%;
+						  border-radius: 10px;
+						  box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.1);
+						  overflow: hidden;
+						}
+
+						.custom-card-img {
+						  width: 100%;
+						  height: 200px;
+						  object-fit: contain;
+						  border-radius: 8px;
+						}
+
+						.custom-card-body {
+						  padding: 20px;
+						}
+
+						.custom-card-title {
+						  font-size: 1.2rem;
+						  font-weight: bold;
+						}
+
+						.custom-card-text {
+						  font-size: 0.9rem;
+						}
+
+						.custom-card-price {
+						  font-size: 1rem;
+						  font-weight: bold;
+						  margin-bottom: 10px;
+						}
+
+						.custom-card-buttons {
+						  display: flex;
+						  justify-content: center;
+						}
+
+						@media (max-width: 991.98px) {
+						  .custom-card-container {
+						    flex: 1 0 calc(50% - 20px);
+						  }
+						}
+
+						@media (max-width: 767.98px) {
+						  .custom-card-container {
+						    flex: 1 0 calc(100% - 20px);
+						  }
+						}
+
+					ItemDetail.css:
+
+						.item-detail-container {
+						  text-align: center;
+						  padding: 20px;
+						  border-radius: 10px;
+						}
+						.item-detail-title {
+						  font-size: 2rem;
+						  margin-bottom: 20px;
+						}
+
+						.item-detail-image {
+						  width: 100%;
+						  max-width: 300px;
+						  height: auto;
+						  margin-bottom: 20px;
+						  border-radius: 10px;
+						}
+
+						.item-detail-description {
+						  font-size: 1.1rem;
+						  margin-bottom: 20px;
+						}
+
+						.item-detail-price {
+						  font-size: 1.2rem;
+						  font-weight: bold;
+						}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

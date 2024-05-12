@@ -1,27 +1,33 @@
-import { useEffect, useState } from "react";
-import Container from 'react-bootstrap/Container';
-import { ItemList } from "./ItemList";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import data from "../data/products.json";
+import Container from 'react-bootstrap/Container';
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { db } from "../data/config";
+import ItemList from "./ItemList";
 
-export const ItemListContainer = () => {
+const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
-  const { id } = useParams();
+  const { categoryName } = useParams();
 
   useEffect(() => {
-    const get = new Promise((resolve, reject) => {
-      resolve(data);
-    });
+    const fetchProducts = async () => {
+      const q = query(
+        collection(db, "items"),
+        where("category", "==", categoryName)
+      );
 
-    get.then((data) => {
-      if (!id) {
-        setProducts(data);
-      } else {
-        const filtered = data.filter((p) => p.category === id);
-        setProducts(filtered);
-      }
-    });
-  }, [id]);
+      const querySnapshot = await getDocs(q);
+
+      const items = [];
+      querySnapshot.forEach((doc) => {
+        items.push({ id: doc.id, ...doc.data() });
+      });
+
+      setProducts(items);
+    };
+
+    fetchProducts();
+  }, [categoryName]);
 
   return (
     <Container className='mt-4'>
@@ -29,3 +35,5 @@ export const ItemListContainer = () => {
     </Container>
   );
 };
+
+export default ItemListContainer;

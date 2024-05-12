@@ -2,39 +2,40 @@ import React, { createContext, useState, useContext } from 'react';
 
 const CartContext = createContext();
 
-export const CartProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState([]);
+export const useCart = () => {
+  return useContext(CartContext);
+};
 
-  const addItem = (item, quantity) => {
-    const existingItemIndex = cartItems.findIndex((cartItem) => cartItem.id === item.id);
-    if (existingItemIndex !== -1) {
-      const updatedCartItems = [...cartItems];
-      updatedCartItems[existingItemIndex].quantity += quantity;
-      setCartItems(updatedCartItems);
+export const CartProvider = ({ children }) => {
+  const [cart, setCart] = useState([]);
+
+  const addToCart = (product, quantity) => {
+    const itemIndex = cart.findIndex(item => item.product.id === product.id);
+    if (itemIndex !== -1) {
+      const updatedCart = [...cart];
+      updatedCart[itemIndex].quantity += quantity;
+      setCart(updatedCart);
     } else {
-      setCartItems([...cartItems, { ...item, quantity }]);
+      setCart([...cart, { product, quantity }]);
     }
   };
 
-  const removeItem = (itemId) => {
-    setCartItems(cartItems.filter((item) => item.id !== itemId));
+  const removeFromCart = (productId) => {
+    const updatedCart = cart.filter(item => item.product.id !== productId);
+    setCart(updatedCart);
   };
 
-  const clear = () => {
-    setCartItems([]);
+  const clearCart = () => {
+    setCart([]);
   };
 
-  const isInCart = (id) => {
-    return cartItems.some((item) => item.id === id);
+  const getCartTotal = () => {
+    return cart.reduce((total, item) => total + (item.product.price * item.quantity), 0);
   };
 
   return (
-    <CartContext.Provider value={{ cartItems, addItem, removeItem, clear, isInCart }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart, getCartTotal }}>
       {children}
     </CartContext.Provider>
   );
-};
-
-export const useCart = () => {
-  return useContext(CartContext);
 };

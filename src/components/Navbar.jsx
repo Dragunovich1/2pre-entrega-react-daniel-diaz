@@ -18,7 +18,7 @@ export const CustomNavbar = () => {
               <Nav.Link to="/about" as={NavLink}>Acerca de nosotros</Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link href="#cart">
+            <Nav.Link to="/cart" as={NavLink} >
               <FontAwesomeIcon icon={faShoppingCart} />
               <span className="badge bg-primary">3</span>
             </Nav.Link>

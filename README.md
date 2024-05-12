@@ -1,4 +1,4 @@
-# Proyecto Final - CoderHouse - React
+# Segunda pre entrega - CoderHouse - React
 
 Alumno: Daniel Diaz
 
@@ -19,12 +19,10 @@ Retro Store es una tienda en línea que ofrece una variedad de productos retro y
 ## Funcionalidades
 
 - **NavBar**: Barra de navegación que incluye el título "Retro Store", un listado de categorías clickeables
-- **CartWidget**: Un icono de carrito que muestra la cantidad de elementos en el carrito
-- **Footer**: Pie de página que muestra el texto "Proyecto Final - CoderHouse - React - Daniel Diaz".
+- **CartWidget**: Un icono de carrito que muestra la cantidad de elementos en el carrito (por ahora con numero hardcodeado).
+- **Footer**: Pie de página que muestra el texto "Primera pre-entrega - CoderHouse - React - Daniel Diaz".
 - **ItemListContainer, ItemList, ItemDetailContainer,Item**: Se incluyen cards con algunos productos
-- **ItemDetailModal: Opte por utilizar modal para los detalles de producto
-- **CartModal: Tambien se utilizó modal para mostrar el detalle del carrito de compras
-- **Navegación**: Todo el sitio es responsive, se utilizó un mix de bootstrap + css con mediaquerys
+- *Navegación* Se utilizó React Router Dom para manejo de links y ruteo 
 
 ## Instalación
 
@@ -40,4 +38,3 @@ Retro Store es una tienda en línea que ofrece una variedad de productos retro y
 - Bootstrap
 - Font Awesome
 - React Router Dom
-- Firebase

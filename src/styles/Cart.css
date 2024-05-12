@@ -1,4 +1,4 @@
-.about-us-container {
+.cart-container {
   max-width: 400px;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -8,25 +8,25 @@
 }
 
 
-.about-us-container h2 {
+.cart-container h2 {
   margin-bottom: 10px;
 }
 
-.about-us-container p {
+.cart-container p {
   font-size: 16px;
   line-height: 1.6;
 }
 
-.about-us-image img {
+.cart-image img {
   max-width: 80%;
   height: auto;
 }
 
-.about-us-title h2 {
+.cart-title h2 {
   margin-bottom: 20px;
   text-align: center;
 }
 
-.about-us-content p {
+.cart-content p {
   text-align: justify;
 }

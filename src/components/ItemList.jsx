@@ -1,4 +1,4 @@
-import Item from "./Item";
+import { Item } from "./Item";
 import '../styles/Item.css';
 
 export const ItemList = ({ products }) => {
@@ -12,3 +12,5 @@ export const ItemList = ({ products }) => {
     </div>
   );
 };
+
+export default ItemList;
