@@ -19,9 +19,9 @@ Retro Store es una tienda en línea que ofrece una variedad de productos retro y
 ## Funcionalidades
 
 - **NavBar**: Barra de navegación que incluye el título "Retro Store", un listado de categorías clickeables
-- **CartWidget**: Un icono de carrito que muestra la cantidad de elementos en el carrito (por ahora con numero hardcodeado).
+- **CartWidget, Cart, CheckOut, CartItem, CartContext**: Se implenmentó la funcionalidad completa de carrito de compras utilizando context
 - **Footer**: Pie de página que muestra el texto "Primera pre-entrega - CoderHouse - React - Daniel Diaz".
-- **ItemListContainer, ItemList, ItemDetailContainer,Item**: Se incluyen cards con algunos productos
+- **ItemListContainer, ItemList, ItemDetailContainer,Item**: Se incluyen cards con los productos, se filtran por categoria y se obtienen los datos de Firestore.
 - *Navegación* Se utilizó React Router Dom para manejo de links y ruteo 
 
 ## Instalación
@@ -38,3 +38,4 @@ Retro Store es una tienda en línea que ofrece una variedad de productos retro y
 - Bootstrap
 - Font Awesome
 - React Router Dom
+- Firebase/Firestore
