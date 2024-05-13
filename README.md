@@ -1,4 +1,4 @@
-# Segunda pre entrega - CoderHouse - React
+# Proyecto Final - CoderHouse - React
 
 Alumno: Daniel Diaz
 
