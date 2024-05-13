@@ -6,7 +6,7 @@ Comisión: 54080
 
 Docente: Julio Avantt
 
-Tutores: Emanuel Acosta, Gabriel Navarro, Luis Gonzalez
+Tutores: Emanuel Acosta, Gabriel Navarro, Luis Gonzalez, Lisandro Cordoba
 
 # Retro Store
 
