@@ -3,8 +3,8 @@
   margin-top: 20px;
   margin-bottom: 20px;
   padding: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Agregamos una ligera sombra */
-  border-radius: 8px; /* Añadimos esquinas redondeadas */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
 

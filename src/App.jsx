@@ -7,6 +7,7 @@ import MainContent from './components/MainContent';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import ItemListContainer from './components/ItemListContainer';
 import AboutUs from './components/AboutUs';
+import CheckOut from './components/CheckOut';
 import Cart from './components/Cart';
 import Footer from './components/Footer';
 import './styles/App.css';
@@ -23,6 +24,7 @@ function App() {
           <Route path="/item/:id" element={<ItemDetailContainer />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<CheckOut />} />
         </Routes>
         <Footer />
       </BrowserRouter>

@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react";
-import {Link} from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
-import { useParams } from "react-router-dom";
+import { useParams } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../data/config";
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
+import { useCart } from "../context/CartContext";
 import '../styles/ItemDetail.css';
 
 const ItemDetailContainer = () => {
   const { id } = useParams();
+  const { addToCart } = useCart();
   const [product, setProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const [isAddingToCart, setIsAddingToCart] = useState(false);
@@ -46,33 +47,38 @@ const ItemDetailContainer = () => {
 
   const handleAddToCart = () => {
     setIsAddingToCart(true);
-    // Implementar lógica para agregar productos al carrito
+    addToCart(product, quantity);
     console.log(`Se agregarán ${quantity} unidades del producto "${product.title}" al carrito.`);
   };
 
-  if (!product) return <div>Loading...</div>;
-
   return (
     <Container className='item-detail-container mt-4'>
-      <h1 className='item-detail-title'>{product.title}</h1>
-      <img src={product.image} alt="Product" className='item-detail-image' />
-      <p className='item-detail-description'>{product.description}</p>
-      <p className='item-detail-stock'>Stock disponible: {product.stock}</p>
-      <p className='item-detail-price'>${product.price}</p>
-      {!isAddingToCart && (
-        <div className="item-detail-quantity mb-3">
-          <Button variant="primary btn-sm" onClick={handleDecrement}>-</Button>
-          <span className="mx-2">{quantity}</span>
-          <Button variant="primary btn-sm" onClick={handleIncrement}>+</Button>
-        </div>
+      {product && (
+        <>
+          <h1 className='item-detail-title'>{product.title}</h1>
+          <img src={product.image} alt="Product" className='item-detail-image' />
+          <p className='item-detail-description'>{product.description}</p>
+          <p className='item-detail-stock'>Stock disponible: {product.stock}</p>
+          <p className='item-detail-price'>${product.price}</p>
+          {!isAddingToCart && (
+            <div className="item-detail-quantity mb-3">
+              <Button variant="primary btn-sm" onClick={handleDecrement}>-</Button>
+              <span className="mx-2">{quantity}</span>
+              <Button variant="primary btn-sm" onClick={handleIncrement}>+</Button>
+            </div>
+          )}
+          {!isAddingToCart ? (
+            <Button variant="primary" onClick={handleAddToCart}>Agregar al carrito</Button>
+          ) : (
+            <Link to="/cart">
+              <Button variant="primary">Finalizar compra</Button>
+            <span className="mx-2"></span>
+            <Link to="/" className="btn btn-primary">Seguir Comprando</Link>
+            </Link>
+          )}
+        </>
       )}
-      {!isAddingToCart ? (
-        <Button variant="primary" onClick={handleAddToCart}>Agregar al carrito</Button>
-      ) : (
-        <Link to="/cart" as={NavLink} >
-          <Button variant="success">Finalizar compra</Button>
-        </Link>
-      )}
+
     </Container>
   );
 };

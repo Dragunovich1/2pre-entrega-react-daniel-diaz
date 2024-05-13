@@ -31,6 +31,7 @@ const ItemListContainer = () => {
 
   return (
     <Container className='mt-4'>
+      <h1 style={{ marginBottom: '20px', padding: '10px 0' }}>Productos de la categoría {categoryName}</h1>
       <ItemList products={products} />
     </Container>
   );

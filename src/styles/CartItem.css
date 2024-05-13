@@ -1,0 +1,35 @@
+.cart-item-container {
+  max-width: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+}
+
+.cart-item-image {
+  width: 100px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.cart-item-details {
+  flex-grow: 1;
+}
+
+.cart-buttons {
+  padding: 10px 5px;
+}
+
+.btn-remove {
+  background-color: transparent;
+  color: #f44336;
+  border: none;
+  cursor: pointer;
+}

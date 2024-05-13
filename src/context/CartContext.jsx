@@ -33,8 +33,12 @@ export const CartProvider = ({ children }) => {
     return cart.reduce((total, item) => total + (item.product.price * item.quantity), 0);
   };
 
+  const getTotalItems = () => {
+    return cart.reduce((total, item) => total + item.quantity, 0);
+  };
+
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart, getCartTotal }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart, getCartTotal, getTotalItems }}>
       {children}
     </CartContext.Provider>
   );

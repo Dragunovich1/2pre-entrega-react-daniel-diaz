@@ -1,11 +1,16 @@
 import React from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
+import { useCart } from '../context/CartContext';
 
 const CartWidget = () => {
+  const { getTotalItems } = useCart();
+
   return (
-    <div className="cart-widget">
-      <FaShoppingCart />
-      <span className="badge bg-primary">3</span>
+    <div>
+      <FaShoppingCart size={30} />
+      {getTotalItems() > 0 && (
+        <span className="badge">{getTotalItems()}</span>
+      )}
     </div>
   );
 };
